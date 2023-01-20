@@ -26,7 +26,7 @@ addShit = 45
 goalShit = 45
 minCrop = 2
 
-with open("/home/epsilon6-1/Documents/Data.csv") as configRaw:
+with open("/home/epsilon6-1/Ep6_Open_2023_LP/Data.csv") as configRaw:
 	configLoop = csv.reader(configRaw, delimiter=' ')
 	config = []
 	for row in configLoop:
