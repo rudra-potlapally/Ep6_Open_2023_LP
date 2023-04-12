@@ -17,13 +17,13 @@ idPackets = ['"', '#', '$', '%', '&', "*"]
 #--Config Values--
 saveFPS = 15
 arduino = serial.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=0.1)
-debugElements = False
-FPSterminal = False
+debugElements = False    
+FPSterminal = False #always
 debug = False
-displayTracks = False
+displayTracks = False #always
 ballBox = 60
 addShit = 45
-goalShit = 45
+goalShit = 200
 minCrop = 2
 
 with open("/home/epsilon6-1/Ep6_Open_2023_LP/Data.csv") as configRaw:
@@ -75,6 +75,7 @@ cenY = 360
 connectivity = 4
 bY = False
 bX = False
+
 vidStart = time.time()
 
 #previous coords
@@ -224,6 +225,7 @@ while True:
 			prevSave = time.time()
 	if debug:
 		cv.imshow('Image', im)
+		print(gyX, gyY)
 	#stream format (all coords based on centre): ballX, ballY, yellowX, yellowY, blueX, blueY
 	stream = [500+bX-cenX, 500-bY+cenY, 500+gyX-cenX, 500-gyY+cenY, 500+gbX-cenX, 500-gbY+cenY]
 	for i in range(len(stream)):
